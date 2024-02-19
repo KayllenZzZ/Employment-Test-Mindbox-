@@ -9,28 +9,24 @@ import XCTest
 @testable import Employment_Test__Mindbox_
 
 final class Employment_Test__Mindbox_Tests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testCircleArea() {
+        let circle = Circle(radius: 5)
+        XCTAssertEqual(circle.area(), 78.5, accuracy: 0.1, "Площадь круга вычислена неверно")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testTriangleArea() {
+        let triangle = Triangle(sideA: 3, sideB: 4, sideC: 5)
+        XCTAssertEqual(triangle.area(), 6.0, accuracy: 0.1, "Площадь треугольника вичислена неверно")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testRightAngledTriangle() {
+        let rightTriangle = Triangle(sideA: 3, sideB: 4, sideC: 5)
+        print(XCTAssertTrue(rightTriangle.isRightAngled(), "Угол определился как непрямой"))
+        
+        let nonRightTriangle = Triangle(sideA: 2, sideB: 3, sideC: 4)
+        XCTAssertFalse(nonRightTriangle.isRightAngled(), "Угол определился как непрямой")
     }
 
 }
+
